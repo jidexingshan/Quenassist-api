@@ -1,0 +1,22 @@
+LOG_LEVEL: INFO
+
+DATABASE:
+  DRIVER: mysql
+  NAME: quenassist_db
+  HOST: 127.0.0.1
+  PORT: 3306
+  USERNAME: root
+  PASSWORD: 1234
+  QUERY:
+    charset: utf8mb4
+
+VECTORDATABASE:
+  DRIVER: milvus
+  NAME: quenassist_vdb
+  HOST: 127.0.0.1
+  PORT: 19530
+  USER: root
+  PASSWORD: 'root'
+
+HOST: 0.0.0.0
+PORT: 8000

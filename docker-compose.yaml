@@ -1,0 +1,58 @@
+version: "3.7"
+
+include:
+  - path:
+    - docker-compose-vectordb.yaml
+
+service:
+  app:
+    # TODO: The quenassist app service definition
+    build:
+      context: .
+      dockerfile: Dockerfile
+
+  mysql:
+    image: mysql:5.7
+    volumes:
+      - D:\mysql:/var/lib/mysql
+    environment:
+      MYSQL_ROOT_PASSWORD: 1234
+      MYSQL_DATABASE: quenassist_db
+    # TODO: The mysql service definition
+
+volums:
+  D:\mysql:
+    
+
+# In docker-compose.yaml, The service automatically gets the 
+# network alias. Specify the image to use.
+
+# # Demo
+# version: "3.7"
+
+# services:
+#   app:
+#     image: node:20-alpine
+#     command: sh -c "yarn install && yarn run dev"
+#     ports:
+#       - 3000:3000
+#     working_dir: /app
+#     volumes:
+#       - ./:/app
+#     # Setting connection settings here is not recommended
+#     environment:
+#       MYSQL_HOST: mysql
+#       MYSQL_USER: root
+#       MYSQL_PASSWORD: <your-password>
+#       MYSQL_DB: todos
+
+#   mysql:
+#     image: mysql:5.7
+#     volumes:
+#       - todo-mysql-data:/var/lib/mysql
+#     environment: 
+#       MYSQL_ROOT_PASSWORD: <your-password>
+#       MYSQL_DATABASE: todos
+
+# volumes:
+#   todo-mysql-data:
